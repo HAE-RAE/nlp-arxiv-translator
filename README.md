@@ -10,7 +10,7 @@
 수식 번역 및 전문 용어 유지하는 고품질 전문 용어 한-영 번역 DPO 데이터셋을 제작하고, 이를 한-영 번역모델에 추가 DPO 학습시켰습니다.
 
 - 모델: https://huggingface.co/Translation-EnKo/gemma2-for-nlp-arxiv-translation
-- 학습 데이터셋: https://huggingface.co/datasets/Translation-EnKo/nlp-arxivtranslation-dpo-with-math-10k
+- 학습 데이터셋: https://huggingface.co/datasets/Translation-EnKo/nlp-arxiv-translation-dpo-with-math-10k
 
 
 ## 1. data preprocess
