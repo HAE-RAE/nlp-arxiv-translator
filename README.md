@@ -35,7 +35,7 @@ python3 demo.py
 ```
 
 
-## 결과물
+## 4) Results
 
 ### 번역 예시
 ![alt text](images/image_translation_sample.png)
