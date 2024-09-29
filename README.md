@@ -11,7 +11,7 @@
 
 - **모델**: https://huggingface.co/Translation-EnKo/gemma2-for-nlp-arxiv-translation
 - **학습 데이터셋**
-  -   **SFT**:
+  -   **SFT**: https://huggingface.co/datasets/Translation-EnKo/trc_uniform_313k_eval_45_filtered
   -   **DPO**: https://huggingface.co/datasets/Translation-EnKo/nlp-arxiv-translation-dpo-with-math-10k
 
 
