@@ -16,9 +16,8 @@ def set_seed(seed):
     torch.backends.cudnn.deterministic = False
     torch.backends.cudnn.benchmark = False
 
-
 set_seed(42)
-model_name = "HumanF-MarkrAI/Gukbap-Gemma2-9B"
+model_name = "Translation-EnKo/gukbap-gemma-2-9b-it-translation-general1.2m-en-ko-e1-b16-trc313eval45-e2-b16"
 dataset_name = "Translation-EnKo/nlp-arxiv-translation-dpo-with-math-10k"
 
 epoch = 2
@@ -35,7 +34,7 @@ output_path = f"{out_mname}-{out_dname}-e{epoch}-b{total_batch_size}-lr{lr}-{seq
 peft_config = LoraConfig(
     lora_alpha=32,
     lora_dropout=0.05,
-    r=64,
+    r=8,
     bias="none",
     target_modules="all-linear",
     task_type="CAUSAL_LM",
@@ -56,6 +55,7 @@ training_args = DPOConfig(
     eval_steps=50,
     num_train_epochs=epoch,
     save_steps=100,
+    max_grad_norm=0.3,
     warmup_ratio=0.03,
     lr_scheduler_type="cosine",
     deepspeed="config/ds_config_stage2.json",
@@ -68,7 +68,6 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 dataset = load_dataset(f'{dataset_name}-chat-gemma')
 print(dataset)
-
 trainer = DPOTrainer(
     model,
     ref_model=None,
